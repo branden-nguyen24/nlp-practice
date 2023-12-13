@@ -1,6 +1,7 @@
 import json
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -81,3 +82,16 @@ sequences = tokenizer.texts_to_sequences(sentence)
 padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
 
 print(model.predict(padded))
+
+
+def plot_graphs(history, string):
+    plt.plot(history.history[string])
+    plt.plot(history.history['val_' + string])
+    plt.xlabel("Epochs")
+    plt.ylabel(string)
+    plt.legend([string, 'val_' + string])
+    plt.show()
+
+
+plot_graphs(history, "accuracy")
+plot_graphs(history, "loss")
