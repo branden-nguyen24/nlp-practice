@@ -65,7 +65,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(24, activation='relu'),
     tf.keras.layers.Dense(1, activation='sigmoid')
 ])
-model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 num_epochs = 30
 
